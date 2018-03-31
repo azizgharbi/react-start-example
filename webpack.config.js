@@ -5,7 +5,8 @@ var webpack = require('webpack');
 module.exports = {
     entry:  './public/main.jsx',
     output: {
-        filename: path.resolve(__dirname, 'public/js/dist')
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'public/js/dist')
     },
     resolve: {
         extensions: ['.jsx','.scss','.json','.css','.js']
