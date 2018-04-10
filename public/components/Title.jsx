@@ -5,7 +5,7 @@ export default class Title extends React.Component {
     
     render() {      
       return (
-        <Title> hello title </Title>
+        <p> hahahaha </p>
       );
     }
   }

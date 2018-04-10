@@ -11,9 +11,9 @@ export default class Message extends React.Component {
     render() {
         //let name = "aziz";
       return (
-          <div>
+        <div>
             <Title />
-            </div>
+        </div>
       );
     }
   }
