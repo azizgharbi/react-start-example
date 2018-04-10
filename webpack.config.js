@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 
 module.exports = {
-    entry:  './public/main.jsx',
+    entry:  './public/main.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'public/js/dist')
@@ -15,7 +15,18 @@ module.exports = {
 
         rules: [
 
-            { test: /\.css$/, loader: "style-loader!css-loader" },
+            { test: /\.css$/,
+                use: [
+                  { loader: "style-loader" },
+                  { loader: "css-loader" }
+                ]
+            },
+
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: "babel-loader"
+            },
 
             {
                 test: /\.jsx$/,
