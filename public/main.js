@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Message from "./components/Message"
+import Main from "./components/Main"
 
   
   
   const app =  document.getElementById('app');
-  ReactDOM.render(<Message />,app);
+  ReactDOM.render(<Main />,app);
   

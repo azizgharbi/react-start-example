@@ -2,10 +2,20 @@ import React from "react";
 
 
 export default class Title extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      name : "aziz"
+    }
+  }
     
-    render() {      
+    render() {  
+     
       return (
-        <p> hahahaha </p>
+        <div>
+          <p>{this.state.name} </p>
+        </div>
       );
     }
   }
