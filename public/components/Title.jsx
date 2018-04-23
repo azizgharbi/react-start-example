@@ -14,7 +14,8 @@ export default class Title extends React.Component {
      
       return (
         <div>
-          <p>{this.state.name} </p>
+          <p> props : {this.props.title} </p>
+          <p> state : {this.state.name} </p>
         </div>
       );
     }
