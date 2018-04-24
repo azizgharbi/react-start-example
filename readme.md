@@ -1,7 +1,7 @@
-##Technologies used
+## Technologies used
 
 React - node - express 
 
-##coming soon
+## coming soon
 
 using context Api instead of redux
