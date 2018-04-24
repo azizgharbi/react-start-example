@@ -16,11 +16,6 @@ export default class Main extends React.Component {
       nameValue: "",
       ageValue:""
     }
-
-    this.handleChangeName = this.handleChangeName.bind(this);
-    this.handleChangeAge = this.handleChangeAge.bind(this);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
     
   handleClick() {
@@ -35,14 +30,14 @@ export default class Main extends React.Component {
     this.setState({ageValue: event.target.value});
   }
 
-  handleSubmit(event) {
-    this.state.liste.push({
-      name:this.state.nameValue,
-      age : this.state.ageValue
-    });
-
-    
+  onSubmit(event){
     event.preventDefault();
+    let humanBeing = {name : this.state.nameValue , age : this.state.ageValue};
+    this.setState({
+      nameValue: '',
+      ageValue: '',
+      liste: [...this.state.liste, humanBeing]
+    });
   }
 
     render() {
@@ -51,18 +46,18 @@ export default class Main extends React.Component {
         <div>
             <Title title = "this a prop title"/>
             <List items={this.state.liste}/>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.onSubmit.bind(this)}>
                 <label>
                   Name:
-                  <input type="text" value={this.state.nameValue} onChange={this.handleChangeName} />
+                  <input type="text" value={this.state.nameValue} onChange={this.handleChangeName.bind(this)} />
                 </label>
                 <label>
                   Age:
-                  <input type="text" value={this.state.ageValue} onChange={this.handleChangeAge} />
+                  <input type="text" value={this.state.ageValue} onChange={this.handleChangeAge.bind(this)} />
                 </label>
                   <input type="submit" value="Submit" />
             </form>
-            <button onClick={this.handleClick}> click Me !</button>
+            <button onClick={this.handleClick.bind(this)}> click Me !</button>
         </div>
         
       );
