@@ -1,6 +1,8 @@
 import React from "react";
 import Title from "./Title"
 import List from "./Liste"
+import {Validator} from "./../Validators/Validator";
+
 
 
 export default class Main extends React.Component {
@@ -14,7 +16,8 @@ export default class Main extends React.Component {
       {name:"ana",age : 65}
     ],
       nameValue: "",
-      ageValue:""
+      ageValue:0,
+      errorMessage:{ErrorName : "" , errorAge : ""}
     }
   }
     
@@ -23,21 +26,40 @@ export default class Main extends React.Component {
   }
 
   handleChangeName(event) {
-    this.setState({nameValue: event.target.value});
+    
+    try {
+      this.setState({nameValue:  Validator.isString(event.target.value)});      
+    } catch (error) {
+      this.setState({
+        errorMessage: {ErrorName : error.message , errorAge : ""}
+      });
+    }
   }
 
   handleChangeAge(event) {
-    this.setState({ageValue: event.target.value});
+    try{
+    this.setState({ageValue: Validator.isNumeric(event.target.value)});
+    } catch (error) {
+      this.setState({
+        errorMessage: {ErrorName : "" , errorAge : error.message}
+      });
+    }
   }
 
+ 
   onSubmit(event){
     event.preventDefault();
-    let humanBeing = {name : this.state.nameValue , age : this.state.ageValue};
-    this.setState({
-      nameValue: '',
-      ageValue: '',
-      liste: [...this.state.liste, humanBeing]
-    });
+        let humanBeing = {
+            name :this.state.nameValue, 
+            age : this.state.ageValue
+        };
+      Validator.string(this.state.nameValue);
+        this.setState({
+            nameValue: '',
+            ageValue: '',
+            errorMessage: '',
+            liste: [...this.state.liste, humanBeing]
+        });
   }
 
     render() {
@@ -50,10 +72,12 @@ export default class Main extends React.Component {
                 <label>
                   Name:
                   <input type="text" value={this.state.nameValue} onChange={this.handleChangeName.bind(this)} />
+                  <p>{this.state.errorMessage.ErrorName}</p>
                 </label>
                 <label>
                   Age:
                   <input type="text" value={this.state.ageValue} onChange={this.handleChangeAge.bind(this)} />
+                  <p>{this.state.errorMessage.errorAge}</p>
                 </label>
                   <input type="submit" value="Submit" />
             </form>
