@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 
 export default class Title extends React.Component {
@@ -10,13 +11,21 @@ export default class Title extends React.Component {
     }
   }
     
-    render() {  
+  render() {  
      
-      return (
+    return (
         <div>
-          <p> props : {this.props.title} </p>
+          <p> Title : {this.props.title} </p>
+          <p> Description : {this.props.description} </p>
           <p> state : {this.state.name} </p>
         </div>
       );
+
     }
+  }
+
+  Title.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+
   }

@@ -66,7 +66,7 @@ export default class Main extends React.Component {
         
       return (
         <div>
-            <Title title = "this a prop title"/>
+            <Title title = "this a prop title" />
             <List items={this.state.liste}/>
             <form onSubmit={this.onSubmit.bind(this)}>
                 <label>
