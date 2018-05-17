@@ -14,14 +14,13 @@ var Validator = {
                         throw Error("String Required");
                     else 
                         return value;
-                    
                     break;
+
                 case "Number":
                     if (isNaN(value)) 
                         throw Error("Number Required");
                     else 
                         return value;
-                    
                     break;
             }
         } else {
