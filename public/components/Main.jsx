@@ -53,7 +53,7 @@ export default class Main extends React.Component {
             name :this.state.nameValue, 
             age : this.state.ageValue
         };
-      Validator.string(this.state.nameValue);
+
         this.setState({
             nameValue: '',
             ageValue: '',
@@ -66,7 +66,7 @@ export default class Main extends React.Component {
         
       return (
         <div>
-            <Title title = "this a prop title" />
+            <Title title = "this a prop title" description="Lorem ipsum dolor sit amet, consectetur" />
             <List items={this.state.liste}/>
             <form onSubmit={this.onSubmit.bind(this)}>
                 <label>
