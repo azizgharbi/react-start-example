@@ -28,7 +28,7 @@ export default class Main extends React.Component {
   handleChangeName(event) {
     
     try {
-      this.setState({nameValue:  Validator.isString(event.target.value)});      
+      this.setState({nameValue:  Validator.isValidate(event.target.value,"String")});      
     } catch (error) {
       this.setState({
         errorMessage: {ErrorName : error.message , errorAge : ""}
@@ -38,7 +38,7 @@ export default class Main extends React.Component {
 
   handleChangeAge(event) {
     try{
-    this.setState({ageValue: Validator.isNumeric(event.target.value)});
+    this.setState({ageValue: Validator.isValidate(event.target.value,"Number")});
     } catch (error) {
       this.setState({
         errorMessage: {ErrorName : "" , errorAge : error.message}

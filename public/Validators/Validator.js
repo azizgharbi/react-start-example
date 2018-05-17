@@ -1,27 +1,34 @@
-import { error } from "util";
+import {
+    error
+} from "util";
 
 
 var Validator = {
 
-	isString :(value) => {
-        if(value.length > 0) {
-            if(!isNaN(value)){
-                throw Error("String Required");
-           }
-           return value;
-        }
-    },
-    isNumeric :(value) => {
-        if(value.length > 0) {
-            if(isNaN(value)){
-                throw Error("String Required");
-           }
-           return value;
-        }
-    },
-    
-  }
+    isValidate: (value, type) => {
+        if (value) {
 
-  export{
-      Validator
-  }
+            switch (type) {
+                case "String":
+                    if (!isNaN(value)) {
+                        throw Error("String Required");
+                    }
+                    break;
+                case "Number":
+                    if (isNaN(value)) {
+                        throw Error("Number Required");
+                    }
+                    break;
+            }
+        } else {
+            throw Error("this filed is required");
+        }
+    },
+
+}
+
+
+
+export {
+    Validator
+}
