@@ -10,26 +10,25 @@ var Validator = {
 
             switch (type) {
                 case "String":
-                    if (!isNaN(value)) {
+                    if (!isNaN(value))
                         throw Error("String Required");
-                    } else {
+                    else 
                         return value;
-                    }
+                    
                     break;
                 case "Number":
-                    if (isNaN(value)) {
+                    if (isNaN(value)) 
                         throw Error("Number Required");
-                    } else {
+                    else 
                         return value;
-                    }
+                    
                     break;
             }
         } else {
-            if (required) {
+            if (required) 
                 throw Error("this filed is required");
-            } else {
+            else 
                 return value;
-            }
         }
     },
 
