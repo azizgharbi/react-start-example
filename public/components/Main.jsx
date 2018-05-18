@@ -1,6 +1,10 @@
-import React from "react";
+import React from "react"
 import Title from "./Title"
 import List from "./Liste"
+import MyRoomColor from "./YourName"
+
+import TestContext from "./../store/store"
+
 import { Validator } from "./../Validators/Validator";
 
 
@@ -73,6 +77,13 @@ export default class Main extends React.Component {
       <div>
         <Title title="this a prop title" description="Lorem ipsum dolor sit amet, consectetur" />
         <List items={this.state.liste} />
+
+        <TestContext.Provider value="default fucking Name">
+            <div>
+              <MyRoomColor/>
+            </div>
+          </TestContext.Provider>
+
         <form onSubmit={this.onSubmit.bind(this)}>
           <label>
             Name:
