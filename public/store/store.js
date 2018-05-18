@@ -1,5 +1,8 @@
 import React from "react";
 
-const TestContext = React.createContext('Default name');
+const store = {
+    name = "Default name dude"
+}
+const TestContext = React.createContext(store.name);
 
 export default TestContext;
