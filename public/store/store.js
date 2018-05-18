@@ -1,7 +1,7 @@
 import React from "react";
 
 const store = {
-    name = "Default name dude"
+    name : "Default"
 }
 const TestContext = React.createContext(store.name);
 

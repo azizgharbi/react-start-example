@@ -5,9 +5,9 @@ import TestContext from "./../store/store"
 export default function MyRoomColor(props){
     return(
         <TestContext.Consumer>
-          {color => (
+          {name => (
             <p> 
-                {color} 
+               {name} 
             </p>
           )}
           </TestContext.Consumer>
