@@ -78,7 +78,7 @@ export default class Main extends React.Component {
         <Title title="this a prop title" description="Lorem ipsum dolor sit amet, consectetur" />
         <List items={this.state.liste} />
 
-        <TestContext.Provider value="New name">
+        <TestContext.Provider value={this.state.nameValue}>
             <div>
               <MyRoomColor/>
             </div>
