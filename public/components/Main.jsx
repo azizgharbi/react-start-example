@@ -63,12 +63,12 @@ export default class Main extends React.Component {
       age: this.state.ageValue
     };
 
-    this.setState({
+    this.setState(prevState =>({
       nameValue: '',
       ageValue: '',
       errorMessage: '',
-      liste: [...this.state.liste, humanBeing]
-    });
+      liste: prevState.liste.concat(humanBeing)
+    }));
   }
 
   render() {
