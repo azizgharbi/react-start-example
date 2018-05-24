@@ -25,6 +25,7 @@ export default class Main extends React.Component {
     }
   }
 
+
   handleClick() {
     console.log("hello");
   }
@@ -55,6 +56,10 @@ export default class Main extends React.Component {
 
   }
 
+  componentDidMount(){
+    this.rootNode.style.backgroundColor = "#ecf0f1";
+  }
+
 
   onSubmit(event) {
     event.preventDefault();
@@ -74,7 +79,7 @@ export default class Main extends React.Component {
   render() {
 
     return (
-      <div>
+      <div ref={el =>(this.rootNode = el )} className="testclass">
         <Title title="this a prop title" description="Lorem ipsum dolor sit amet, consectetur" />
         <List items={this.state.liste} />
 
